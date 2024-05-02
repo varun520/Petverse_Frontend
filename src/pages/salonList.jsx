@@ -28,7 +28,7 @@ const SaloonList = () => {
 
   const fetchSalons = async () => {
     try {
-      const response = await fetch(`https://petverse-3.onrender.com/salon/${location}`);
+      const response = await fetch(`https://petverse-3.onrender.com/salon/Hyderabad`);
 
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
