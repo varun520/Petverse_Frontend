@@ -30,7 +30,7 @@ const UserDashboard = () => {
           <h2 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '49px', fontWeight: 'bold', fontSize: '48px' }}>Account Details</h2>
           <Box>
             <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'beige', margin: '5% 29%', height: '19rem' }}>
-              {user !== null ? <Details user={user} style={{ width: '73%', height: '20rem' }} /> : <p>Loading user details...</p>}
+              {user !== null ? <Details2 user={user} style={{ width: '73%', height: '20rem' }} /> : <p>Loading user details...</p>}
             </Box>
           </Box>
         </Box>
