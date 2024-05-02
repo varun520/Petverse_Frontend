@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import Details from '../componants/Dashboard/Details';
+import Details from '../componants/Dashboard/Details2';
 import Header from '../componants/Header';
 import { useParams } from 'react-router-dom';
 const UserDashboard = () => {
