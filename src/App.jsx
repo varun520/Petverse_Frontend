@@ -63,6 +63,7 @@ import UserSignup from './pages/UserSignup';
 import UserLogin from './pages/UserLogin';
 import AdminBookings from './pages/AdminBookings';
 import AdminProduct from './pages/AdminProduct';
+import UserServices from './pages/UserServices';
 const App = () => {
  
 
@@ -110,7 +111,7 @@ const App = () => {
       <Route path="/salon/payment/:userid/:title/:service/:slot" element={<SalonPayment/>} />
       <Route path="/ticket/:userid" element={<Ticket/>} />
       <Route path="/salons/:userid?/:location" element={<SaloonList/>} />
-     
+     <Route path="/user/services/:userid" element={<UserServices/>} />
       <Route path="/data" element={<DataComponent
       />} />
     
