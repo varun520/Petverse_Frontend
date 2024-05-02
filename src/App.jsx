@@ -64,6 +64,7 @@ import UserLogin from './pages/UserLogin';
 import AdminBookings from './pages/AdminBookings';
 import AdminProduct from './pages/AdminProduct';
 import UserServices from './pages/UserServices';
+import Ticket from './pages/ticket';
 const App = () => {
  
 
@@ -98,7 +99,7 @@ const App = () => {
      
       <Route path="/Sell/Signup" element={ <SellerSignup/>} />
       <Route path="/Sell/List" element={<PetListingPage/>} />
-     
+       <Route path="/ticket/:userid/:title/:service/:slot" element={<Ticket/>} />
       <Route path="/Header" element={<Header/>} />
       <Route path="/product/:userid/:producttitle" element={<ProductsSingle/>} />
       <Route path="/review" element={<Reviews/>} />
