@@ -51,7 +51,7 @@ const AdminProduct = () => {
         <Box>
             
             {product && (
-                <Card m="2rem" display="flex" flexDirection="row" flexWrap="wrap" border="0" maxWidth="100rem" height="40rem" boxShadow="md" borderRadius="md" ml="27rem">
+                <Card m="2rem" display="flex" flexDirection="row" flexWrap="wrap" border="0" maxWidth="100rem" height="40rem" boxShadow="md" borderRadius="md" ml="19rem">
                     
                         <Image  classname='singleimage' src={`https://petverse-3.onrender.com/uploads/${product.image}`} alt={title} boxSize='20vw' borderRadius="md" />
                     
