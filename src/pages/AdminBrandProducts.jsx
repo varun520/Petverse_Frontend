@@ -1,7 +1,7 @@
 // ProductsPage.js
 import React, { useState, useEffect } from 'react';
 import { Image} from '@chakra-ui/react';
-
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import SidebarAdmin from '../componants/Admin/SideBarAdmin';
 const AdminBrandProducts = () => {
@@ -26,6 +26,7 @@ const AdminBrandProducts = () => {
     }
   };
 
+
   
 
   return (
@@ -41,13 +42,16 @@ const AdminBrandProducts = () => {
            {items.map((item) => (
                <div key={item.id} className="ppcard">
               
-              
+               <Link to={`/admin/product/${item.title}`}>   
          <Image
            src={`https://petverse-3.onrender.com/uploads/${item.image}`}
            alt={item.title}
            objectFit="cover"
            boxSize="20vw"
+          
+
          />
+         </Link>
      
                 
                    <div style={{ backgroundColor: "white" }}>
@@ -82,3 +86,4 @@ const AdminBrandProducts = () => {
 };
 
 export default AdminBrandProducts;
+
