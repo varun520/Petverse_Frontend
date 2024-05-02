@@ -75,10 +75,6 @@ const SellerLogin = () => {
     justifyContent: 'center',
     };
 
-    const imgs = {
-        height: '85vh',
-        maxWidth: '95%',
-    };
 
     const inputContainer = {
         position: 'relative',
@@ -157,6 +153,18 @@ const SellerLogin = () => {
         
     }`
     
+
+    const Img = styled.img`
+    height: 85vh;
+    max-width: 95%;
+  
+    @media (max-width: 1180px) {
+      height: 20vh;
+      width:20vw;
+      margin:10px // You can adjust this value based on your design
+    }
+    
+  `;
     
 
 
@@ -166,7 +174,7 @@ const SellerLogin = () => {
             <div style={div1}>
                 <div style={div2}>
                     <div style={{ flexBasis: '50%' }}>
-                        <img src={LoginImg} style={imgs} alt="Login" />
+                        <Img src={LoginImg}  alt="Login" />
                     </div>
                     <div style={{ flexBasis: '45%', marginTop: '140px' }}>
                         <div>

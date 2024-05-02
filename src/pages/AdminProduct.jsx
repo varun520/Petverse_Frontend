@@ -4,8 +4,8 @@ import Navbar from './NavBar';
 import { useParams } from 'react-router-dom';
 import { FaShoppingCart, FaCheckCircle } from 'react-icons/fa'; // Importing icons for available and sold sections
 import './SellerSingle.css'
-
-const SellerSingle = () => {
+import SidebarAdmin from '../componants/Admin/SideBarAdmin';
+const AdminProduct = () => {
     const { title } = useParams();
     const [product, setProduct] = useState(null);
     const [orders, setOrders] = useState([]);
@@ -46,14 +46,16 @@ const SellerSingle = () => {
     }, [title]);
 
     return (
+        <>
+        <SidebarAdmin/>
         <Box>
-            <Navbar />
+            
             {product && (
-                <Card m="2rem" display="flex" flexDirection="row" flexWrap="wrap" border="0" maxWidth="100rem" height="40rem" boxShadow="md" borderRadius="md">
-                    <div style={{ border: '0.1px solid black' }}>
-                        <Image  classname='singleimage' src={`https://petverse-3.onrender.com/uploads/${product.image}`} alt={title} boxSize='35vw' borderRadius="md" />
-                    </div>
-                    <Box border="0.1px solid black"></Box>
+                <Card m="2rem" display="flex" flexDirection="row" flexWrap="wrap" border="0" maxWidth="100rem" height="40rem" boxShadow="md" borderRadius="md" ml="27rem">
+                    
+                        <Image  classname='singleimage' src={`https://petverse-3.onrender.com/uploads/${product.image}`} alt={title} boxSize='20vw' borderRadius="md" />
+                    
+                    
                     <Box m="2rem" width="40vw" border="0">
                         <Heading fontSize="2vw" mt="3vw" ml='15rem' textAlign="center">{title}</Heading>
                         <Heading fontSize="3vw" mt="1vw" ml='17rem' textAlign="center">Rs.{product.price}</Heading>
@@ -73,7 +75,7 @@ const SellerSingle = () => {
                     </Box>
                 </Card>
             )}
-            <Box m="2rem">
+            <Box ml="25rem">
                 <Heading fontSize="1.5vw">Orders:</Heading>
                 {orders.length === 0 ? (
                     <Text>No orders placed</Text>
@@ -92,7 +94,8 @@ const SellerSingle = () => {
                 )}
             </Box>
         </Box>
+        </>
     );
 };
 
-export default SellerSingle;
+export default AdminProduct;

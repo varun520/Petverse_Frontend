@@ -90,7 +90,7 @@ const AdminOrders = () => {
                         {order.products.map(product => (
                           <>
                             <div key={product.title} style={{ display: 'flex',flexWrap:'wrap' }}>
-                              <Image src={`http://localhost:3002/uploads/${product.image}`} alt={product.title} boxSize="5vw" style={{ margin: '1px 58px' }} />
+                              <Image src={`https://petverse-3.onrender.com/uploads/${product.image}`} alt={product.title} boxSize="5vw" style={{ margin: '1px 58px' }} />
                               <Box style={{ display: 'flex',flexWrap:'wrap' }} >
                                 <Box style={{ width: '27rem' }}>
                                   <p style={{

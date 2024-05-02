@@ -6,6 +6,7 @@ import { faSearch, faUser, faShoppingCart, faHeart, faBars } from '@fortawesome/
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../pages/authSlice';
+import axios from 'axios'; 
 
 const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -14,49 +15,30 @@ const Header = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const { userid } = useParams();
-
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const closeModal = () => {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  };
 
-  const handleOutsideClick = (event) => {
-    const modal = document.getElementById("myModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
+
+
+
+  const [query, setQuery] = useState('');
+
+  const handleSearch = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.get(`http://localhost:3002/api/search?query=${query}`);
+      setResults(response.data);
+    } catch (error) {
+      console.error(error);
+      setError('Failed to fetch search results');
+    } finally {
+      setLoading(false);
     }
   };
-
-  const sendData = (e) => {
-    setLoading(true);
-    // Assuming fetch is replaced by your actual fetch function
-    fetch(`http://localhost:3001/search1/${e}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ payload: e.value })
-    })
-      .then(res => res.json())
-      .then(data => {
-        setResults(data);
-        setLoading(false);
-        const modal = document.getElementById("myModal");
-        modal.style.display = "block";
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(error.message);
-        console.error("Error:", error.message);
-      });
-  };
-
-  const redirectToSearchResults = (query) => {
-    window.location.href = `/productspage?query=${query}`;
-  };
-
   return (
     <>
       <header className={`header ${isMenuOpen ? 'menu-open' : ''}`}>
@@ -88,32 +70,37 @@ const Header = () => {
             </button>
           </div>
         </div>
+        
         <div className="search-bar">
-          <input type="text" placeholder="Search... " onChange={(e) => sendData(e.target.value)} />
-          <FontAwesomeIcon className="search-icon" icon={faSearch} />
+      <input
+        type="text"
+        placeholder="Search... "
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <FontAwesomeIcon onClick={handleSearch} className="search-icon" icon={faSearch} />
+      
+    </div>
+    {results.length > 0 && (
+        <div className="search-results" style={{
+          position: 'absolute',
+    top: '100%',
+   
+    zIndex: '100',
+    backgroundColor: '#e9a32b',
+    border: '1px solid #ccc',
+    borderTop: 'none',
+    borderRadius: '0 0 5px 5px',
+    boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)'
+        }}>
+          {results.map((product) => (
+            <Link key={product._id} style={{ textDecoration: 'none', color: 'white' }} to={`/product/${userid}/${product.title}`}>
+              <div className="search-result">{product.title}</div>
+            </Link>
+          ))}
         </div>
-        <div id="myModal" className="modal" onClick={handleOutsideClick}>
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
-            <section id="searchResults">
-              {loading && <p>Loading...</p>}
-              {error && <p>Error: {error}</p>}
-              {results.length > 0 ? (
-                <ul>
-                  {results.map((item, index) => (
-                    <li key={index}>
-                      <button type="button" id="btnn" className='custom-button' onClick={() => redirectToSearchResults(item.name)}>
-                        <p>{item.name}</p>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>{!loading && !error && 'No results found'}</p>
-              )}
-            </section>
-          </div>
-        </div>
+      )}
+
         <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />
         </div>

@@ -259,7 +259,7 @@ const SellerSignup = () => {
             <div style={div1}>
                 <div style={div2}>
                     <div style={{ flexBasis: '50%' }}>
-                    <Img src={SignupImage} alt="Login" />
+                    <Img src={SignupImage} alt="Login"/>
                     </div>
                     <div style={{ flexBasis: '45%', marginTop: '15px' }}>
                         <div>

@@ -93,6 +93,9 @@ const AdminProducts = () => {
                                 {item.brandName}
                             </div>
                             <div style={{ marginLeft: "2vw" }}>{item.title}</div>
+                            <div style={{ marginLeft: "2vw" }}>Available:{item.available}</div>
+                            <div style={{ marginLeft: "2vw" }}>Sold:{item.sold}</div>
+                            <div style={{ marginLeft: "2vw" }}>Brand:{item.brandcode}</div>
                             <div style={{ marginLeft: "2vw" }}>
                                 <b>₹{item.price}</b>
                             </div>

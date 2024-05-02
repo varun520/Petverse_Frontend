@@ -60,7 +60,7 @@ const SellerOrders = ({ bc }) => {
                 <li key={product._id} className="order-item">
                   <div className="product-details">
                     <div style={{ display: 'flex' }}>
-                      <Image src={`http://localhost:3002/uploads/${product.image}`} alt={product.title} boxSize="5vw" style={{ margin: '1px 58px' }} />
+                      <Image src={`https://petverse-3.onrender.com/uploads/${product.image}`} alt={product.title} boxSize="5vw" style={{ margin: '1px 58px' }} />
                       <Box style={{ display: 'flex',flexWrap:'wrap' }} >
                         <Box style={{ width: '57rem',display:'flex',flexWrap:'wrap',margin:'32px 4px' }}>
                           <p style={{ fontWeight: 'bold', marginRight: '34px', marginLeft: '22px',width:'21rem' }}>{product.title}</p>

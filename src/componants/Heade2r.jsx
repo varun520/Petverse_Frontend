@@ -77,6 +77,16 @@ const Header = () => {
             </button>
             
           </div>
+
+          <div className="user-action-group">
+          <button className="user-button">
+          <FontAwesomeIcon icon={faUser} />
+              <Link to='/user/login' style={{ textDecoration: 'none', color: 'white' }}>
+                <span className="label" style={{ textDecoration: 'none', color: 'white' }}>Login/Signup</span>
+              </Link>
+            </button>
+            
+          </div>
         
          
         </>}

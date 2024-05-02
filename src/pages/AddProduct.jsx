@@ -115,7 +115,7 @@ const Addproduct = () => {
       formData.append('price', priceValue);
       formData.append('quantity', quantityValue);
       formData.append('image', file);
-      const response = await fetch('http://localhost:3002/productupload', {
+      const response = await fetch('https://petverse-3.onrender.com/productupload', {
         method: 'POST',
         body: formData,
         encType:'multipart/form'

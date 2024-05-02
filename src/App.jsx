@@ -62,6 +62,7 @@ import SellerSingle from './pages/SellerSingle';
 import UserSignup from './pages/UserSignup';
 import UserLogin from './pages/UserLogin';
 import AdminBookings from './pages/AdminBookings';
+import AdminProduct from './pages/AdminProduct';
 const App = () => {
  
 
@@ -143,6 +144,7 @@ const App = () => {
       <Route path="/admin/brands" element={<TableofBrands/>} />
       <Route path="/admin/dashboard/insights" element={<AdminInsights/>} />
       <Route path="/hii" element={<Donutanalyse/>} />
+      <Route path="/admin/product/:title" element={<AdminProduct/>} />
     
     </Routes>
    

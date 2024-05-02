@@ -117,7 +117,7 @@ const PaymentForm = () => {
 
     try {
       // Make a POST request to the backend to store the order
-      const response = await fetch(`http://localhost:3002/api/orders/${userid}`, {
+      const response = await fetch(`https://petverse-3.onrender.com/api/orders/${userid}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ const PaymentForm = () => {
           {cart.products.map((item) => (
             <div className="paymentone" key={item.id}>
               <div className="paymentok">
-                <Image  src={`http://localhost:3002/uploads/${item.image}`} alt={item.title} boxSize="8vw"/>
+                <Image  src={`https://petverse-3.onrender.com/uploads/${item.image}`} alt={item.title} boxSize="8vw"/>
               </div>
               <div className="paymentok">{item.title}</div>
               <div className="paymentok">{item.quantity}</div>
